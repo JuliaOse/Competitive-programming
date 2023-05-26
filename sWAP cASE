@@ -10,3 +10,8 @@ def swap_case(s):
         elif i == "." or i == " " or i == '"' or i.isnumeric():
             new_s += i
     return new_s 
+    
+if __name__ == '__main__':
+    s = input()
+    result = swap_case(s)
+    print(result)
