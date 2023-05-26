@@ -1,0 +1,12 @@
+def swap_case(s):
+    new_s = ""
+    for i in s:
+        if i.islower():
+            i = i.upper()
+            new_s += i
+        elif i.isupper():
+            i = i.lower()
+            new_s += i
+        elif i == "." or i == " " or i == '"' or i.isnumeric():
+            new_s += i
+    return new_s 
