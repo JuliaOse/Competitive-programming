@@ -1,0 +1,9 @@
+class Solution:
+    def smallestEvenMultiple(self, n: int) -> int:
+        '''
+            if num is divisible by 2 then return n
+            take other multiple of n and check if it is divisile by 2'''
+
+        while n % 2 != 0:
+            n += n
+        return n
