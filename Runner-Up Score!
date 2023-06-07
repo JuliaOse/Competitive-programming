@@ -1,0 +1,14 @@
+def runner_up(n, arr):
+
+    values = set(arr)
+    listed_values = sorted(list(values))
+    print(listed_values[-2])
+    
+        
+        
+        
+
+if __name__ == '__main__':
+    n = int(input())
+    arr = map(int, input().split())
+    runner_up(n, arr)
