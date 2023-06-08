@@ -1,0 +1,33 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+'''
+collect input for subsets
+intersect the sets if two or more
+
+collect A into a set
+
+A.issuperset(n)
+
+return False if there's at least one set that's not A is not a 
+superset of 
+
+collect answers into list
+
+search list for false
+otherwise return true
+
+'''
+
+A = set(input().split())
+
+n = int(input())
+
+ans = []
+for _ in range(n):
+    subs = set(input().split())
+    truth = A.issuperset(subs)
+    ans.append(str(truth))
+ 
+if "False" in ans:
+    print("False")
+else:
+    print("True")
