@@ -1,0 +1,14 @@
+N_X = input().split()
+
+student = int(N_X[0])
+subject = int(N_X[1])
+scores = []
+for _ in range(student):
+    marks = list(map(float, input().split()))
+    scores += [marks]
+
+zipped_marks = zip(*scores)
+for t in zipped_marks:
+    summation = sum(t)
+    average = summation / subject
+    print(average)
