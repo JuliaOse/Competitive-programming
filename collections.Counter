@@ -1,0 +1,23 @@
+from collections import Counter    
+    
+    
+
+X = int(input())
+sizes = list(map(int, input().split()))
+n = int(input())
+
+
+
+num = 0
+count = Counter(sizes)
+
+for _ in range(n):
+    size_and_price = list(map(int, input().split()))
+    size = size_and_price[0]
+    price = size_and_price[1]
+
+    if count[size] > 0:  
+        num += price 
+        count[size] -= 1  
+
+print(num)
