@@ -1,0 +1,12 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n_english_students = int(input())
+
+n_english_roll = input().split()
+
+n_french_students = int(input())
+
+n_french_roll = input().split()
+
+ans = set(n_english_roll).union(n_french_roll)
+
+print(len(ans))
