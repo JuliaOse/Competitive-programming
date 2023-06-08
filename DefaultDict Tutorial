@@ -1,3 +1,4 @@
+
 from collections import defaultdict
 n_m = list(map(int, input().split()))
 
@@ -7,9 +8,9 @@ d = defaultdict(list)
 a_words = [input() for _ in range(n_m[0])]
 b_words = [input() for _ in range(n_m[1])]
 
-common_words = set(a_words).intersection(b_words)
 
 
-for word in sorted(common_words):
-    indices = [str(i + 1) for i, w in enumerate(a_words) if w == word]
-    print(' '.join(indices))
+d = {word: [i + 1 for i, w in enumerate(a_words) if w == word] for word in set(b_words)}
+
+for word in b_words:
+    print(' '.join(map(str, d[word])) or -1)
