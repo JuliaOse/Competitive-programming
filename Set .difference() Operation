@@ -1,0 +1,12 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+students_english = int(input())
+
+student_roll_english = input().split()
+
+students_french = int(input())
+
+student_roll_french = input().split()
+
+ans = (set(student_roll_english)).difference(student_roll_french)
+
+print(len(ans))
