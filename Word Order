@@ -1,0 +1,16 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import Counter
+n = int(input())
+all_words = []
+
+for _ in range(n):
+    word = str(input())
+    all_words.append(word)
+
+count = Counter(all_words)
+print(len(set(all_words)))
+printed_words = set()  
+for word in all_words:
+    if word not in printed_words:
+        print(count[word], end=" ")  
+        printed_words.add(word) 
