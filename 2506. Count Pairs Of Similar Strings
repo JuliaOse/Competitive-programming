@@ -1,0 +1,13 @@
+class Solution:
+    def similarPairs(self, words: List[str]) -> int:
+        final_count = 0
+        n = len(words)
+        for i in range(n):
+            for j in range(i+1, n):
+                count1 = Counter(words[i])
+                count2 =Counter(words[j])
+
+                if count1.keys() == count2.keys():
+                    final_count += 1
+        
+        return final_count
