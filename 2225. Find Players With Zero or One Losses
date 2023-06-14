@@ -1,0 +1,13 @@
+class Solution:
+    def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
+        winners = []
+        losers = []
+        for player in matches:
+            winners.append(player[0])
+            losers.append(player[1])
+
+        loser_count = Counter(losers)
+        final_losers = [loser for loser, count in loser_count.items() if count == 1]
+
+        winners = sorted(set(winners) - set(losers))
+        return [winners, sorted(final_losers)]
