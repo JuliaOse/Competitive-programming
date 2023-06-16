@@ -3,6 +3,8 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         moving non-zeros to left side
+        time complexity: O(n)
+        space complexity: O(1)
         """
         j = 0
         for i in range(len(nums)):
