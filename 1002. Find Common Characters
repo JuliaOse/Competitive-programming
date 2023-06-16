@@ -1,0 +1,14 @@
+class Solution:
+    def commonChars(self, words: List[str]) -> List[str]:
+        '''
+        '''
+        big_set = []
+        ans = []
+        for word in words:
+            big_set.append(set(word))
+        
+        common = list(set(words[0]).intersection(*big_set))
+        for char in common:
+            count = min(word.count(char) for word in words)
+            ans.extend([char] * count)
+        return ans
