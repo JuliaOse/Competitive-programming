@@ -1,0 +1,19 @@
+class Solution:
+    def matrixReshape(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
+        new_mat = [[0] * c for _ in range(r)]
+        row = 0
+        col = -1
+        if len(mat) * len(mat[0]) != r * c:
+            return mat
+         
+         
+        for i in range( 0, len(mat)):
+            for j in range(0, len(mat[0])):
+                col += 1
+                if col == c:
+                    row += 1
+                    col = 0
+                
+                new_mat[row][col] = mat[i][j]
+        
+        return new_mat
