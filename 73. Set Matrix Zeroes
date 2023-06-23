@@ -1,0 +1,27 @@
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        time complexity: O(r*c)
+        space complexity: O(r+c)
+        """
+        row  = len(matrix)
+        col  = len(matrix[0])
+        row_positions = []
+        col_positions = []
+        for i in range(row):
+            for j in range(col):
+                if matrix[i][j] == 0:
+                    row_positions.append(i)
+                    col_positions.append(j)
+        #for column
+        for j in row_positions:
+            for k in range(col):
+                matrix[j][k] = 0
+        
+        #for row
+        for k in col_positions:
+            for m in range(row):
+                matrix[m][k] = 0 
+      
+
