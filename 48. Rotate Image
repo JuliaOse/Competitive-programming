@@ -1,0 +1,25 @@
+class Solution:
+    def rotate(self, matrix: List[List[int]]) -> None:
+        """
+        Time complexity: O(n2)
+        space complexity: O(n)
+        Do not return anything, modify matrix in-place instead.
+        column is made row
+        column index is row index
+        for i in range(row):
+            for j in rev rage(col):
+                mat[col][row] = mat[i][k]
+        store ini vals in list
+        then refer to list
+        """
+        new_order = []
+        for i in range(len(matrix)):
+            k = 0 
+            for j in reversed(range(len(matrix[0]))):
+                new_order.append(matrix[j][i])
+                k += 1
+        k = 0
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                matrix[i][j] = new_order[k]
+                k+=1
