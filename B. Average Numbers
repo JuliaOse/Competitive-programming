@@ -1,0 +1,14 @@
+n = int(input())
+nums = list(map(int, input().split()))
+ 
+total_sum = sum(nums)
+indices = []
+for i in range(n):
+    sums = total_sum - nums[i]
+    mean = sums / (n-1)
+    if nums[i] == mean:
+        indices.append(i+1)
+ 
+print(len(indices))
+if indices:
+    print(*indices)
