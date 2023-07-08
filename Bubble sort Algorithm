@@ -1,0 +1,19 @@
+#compare two adjacent elements
+#if [i] > [i+1]
+#swap
+#if there's no swaps or theres no more swaps then its sorted
+
+def BubbleSort(arr):
+    for i in range(len(arr)):
+        swapped = False
+        for j in range(i, len(arr)-2):
+              if arr[i] > arr[i+1]:
+                  arr[j], arr[j+1] = arr[j+1], arr[j]
+                  swapped = True
+        if not swapped:
+            break
+      return arr
+
+#time complexity: O(n2)
+#space compleity: O(1)
+        
