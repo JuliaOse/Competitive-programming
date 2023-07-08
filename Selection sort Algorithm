@@ -23,3 +23,5 @@ def SelectionSort():
             arr[i], arr[min_index] = arr[min_index], arr[i]
       return arr
       
+#time: o(n2)
+#space: O(1)
