@@ -1,0 +1,25 @@
+'''
+example: 
+Imagine you have an unsorted deck of cards spread out in front of you face down. You want to sort them in ascending order based on their values.
+
+Initialization:
+
+You start with the entire deck of cards as the unsorted portion.
+Create an empty pile for the sorted portion of the deck.
+Finding the smallest card:
+
+Look through the unsorted portion and find the card with the smallest value.
+Pick up that card and place it on top of the sorted pile.
+Remove the card from the unsorted portion.
+Repeat the process
+'''
+
+def SelectionSort():
+      for i in range(len(arr)):
+            min_index = i
+            for j in range(i+1, len(arr)):
+                  if arr[j] < arr[min_index]:
+                        min_index = j
+            arr[i], arr[min_index] = arr[min_index], arr[i]
+      return arr
+      
