@@ -1,0 +1,35 @@
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        #for total
+        def isValid(nums):
+            counts = Counter(nums)
+            for num in counts:
+                if num != '.' and counts[num] > 1:
+                    return False
+            return True
+
+   
+        for i in range(9):
+            col_elems = []
+            row_elems = []
+            for j in range(9):
+                col_elems.append(board[i][j])
+                row_elems.append(board[j][i])
+            if not isValid(col_elems) or not isValid(row_elems):
+                return False
+    
+
+
+        for i in range(0, 9, 3):
+            for j in range(0, 9, 3):
+                sub_matrix = []
+                for row in range(i, i+3):
+                    sub_matrix.extend(board[row][j:j+3])
+                if not isValid(sub_matrix):
+                    return False
+
+        return True
+        
+   
+                        
+                    
