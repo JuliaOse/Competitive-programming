@@ -1,0 +1,66 @@
+class Solution:
+    def numMagicSquaresInside(self, grid: List[List[int]]) -> int:
+        #target_sum = sum(grid[0][0:3])
+        
+        
+ 
+
+        #sub_matrix = [grid[x][j:j+3] for x in range(i, i+3)]
+        def isMagicSquare(sub_matrix):
+            #ans = True
+
+            target_sum = sum(sub_matrix[0])
+            
+            for row in sub_matrix:
+                row_sum = sum(row)
+                if row_sum != target_sum:
+                    return False
+                
+            
+            
+            #sum of columns
+            for col in zip(*sub_matrix):
+                col_sum = sum(col)
+                if col_sum != target_sum:
+                    return False
+                    
+            
+            #sum of diagonal top left to bottom right
+            diagonal1 = [sub_matrix[i][i] for i in range(3)]
+            if sum(diagonal1) != target_sum:
+                return False
+
+            #sum of other diagonal
+            diagonal2 = [sub_matrix[i][2-i] for i in range(3)]
+            if sum(diagonal2) != target_sum:
+                return False
+
+            #checking for distinct-ness
+            all_elems = []
+            for elements in sub_matrix:
+                all_elems.extend(elements)
+            counter = Counter(all_elems)
+            for num in counter:
+                if counter[num] > 1 or num<1 or num> 9:
+                    return False
+            
+            nums = set(num for row in sub_matrix for num in row)
+            if nums != set(range(1, 10)):
+                return False
+
+            return True
+
+        count = 0
+        rows, cols = len(grid), len(grid[0])
+        
+        for i in range(rows - 2):
+            for j in range(cols - 2):
+                subgrid = [grid[x][j:j+3] for x in range(i, i+3)]
+                if isMagicSquare(subgrid):
+                    count += 1
+        
+        return count
+        
+        #time: O (n3)
+        #space: O(n)
+                
