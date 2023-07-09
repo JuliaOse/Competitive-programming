@@ -1,0 +1,21 @@
+from collections import Counter
+t = int(input())
+ 
+for _ in range(t):
+    n = int(input())
+    robos = list(map(int, input().split()))
+    
+    a = Counter(robos)
+    
+    count = False
+    
+    for i in range(max(a)):
+        if a[i+1] > a[i] or i+1 not in a:
+            count = True
+            break
+    
+            
+    if count:
+        print("no")
+    else:
+        print("yes")
