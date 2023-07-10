@@ -1,7 +1,14 @@
 class Solution:
     def replaceElements(self, arr: List[int]) -> List[int]:
-        for i in range(len(arr)):
-            if i+1 < len(arr):
-                arr[i] = max(arr[i+1 : ])
+        #for i in range(len(arr)):
+        #    if i+1 < len(arr):
+        #        arr[i] = max(arr[i+1 : ])
+        #arr[-1] = -1
+        #return arr
+        j = -1
+        for i in range(len(arr)-2, -1, -1):
+            prev = arr[i]
+            arr[i] = max(j, arr[i+1])
+            j = prev
         arr[-1] = -1
         return arr
