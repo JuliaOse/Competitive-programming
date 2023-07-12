@@ -1,0 +1,17 @@
+from collections import Counter
+t = int(input())
+
+for _ in range(t):
+    n, c = map(int, input().split())
+    
+    orbits = list(map(int, input().split()))
+    
+    planets = Counter(orbits)
+    cost = 0
+    for count in planets.values():
+        if count > c:
+            cost += c
+        else:
+            cost += count
+
+    print(cost)
