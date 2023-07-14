@@ -1,0 +1,24 @@
+'''Quick sort algorithm is in place sorting
+it uses divide and conquer technique
+It works by selecting a "pivot" element from the array and partitioning 
+the other elements into two sub-arrays, according to whether they are less than or
+greater than the pivot. The sub-arrays are then recursively sorted, and 
+the process continues until the entire array is sorted.
+'''
+def quicksort(arr, low, high):
+    if low < high:
+        pivot_index = partition(arr, low, high)
+        quicksort(arr, low, pivot_index - 1)
+        quicksort(arr, pivot_index + 1, high)
+
+def partition(arr, low, high):
+    pivot = arr[high]
+    i = low - 1
+
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i += 1
+            arr[i], arr[j] = arr[j], arr[i]
+
+    arr[i + 1], arr[high] = arr[high], arr[i + 1]
+    return i + 1
