@@ -1,0 +1,11 @@
+class Solution:
+    def largestNumber(self, nums: List[int]) -> str:
+        nums.sort(key=lambda x: str(x) * 9, reverse=True)
+        largest_num = "".join(map(str, nums))
+
+        for num in set(nums):
+            if len(set(nums)) == 1 and num == 0:
+                return "0"
+        return largest_num
+#time: O(n + logn)
+#space: O(1)
