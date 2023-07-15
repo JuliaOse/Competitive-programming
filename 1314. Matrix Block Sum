@@ -20,5 +20,6 @@ class Solution:
                 answer[r][c] = solve(mat, r, c, k)
 
         return (answer)
-        
+#time: O(n2 * n2)
+#space: O(n)
         
