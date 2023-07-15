@@ -1,0 +1,24 @@
+class Solution:
+    def matrixBlockSum(self, mat: List[List[int]], k: int) -> List[List[int]]:
+        def solve(mat, r, c, k):
+            answer = 0
+            row1 = max(0, r - k)
+            col1 = max(0, c - k)
+            row2 = min(len(mat), r + k + 1)
+            col2 = min(len(mat[0]), c + k + 1)
+            
+            for i in range(row1, row2):
+                for j in range(col1, col2):
+                    answer += mat[i][j]
+            
+            return answer
+
+        answer = [[0] * len(mat[0]) for _ in range(len(mat))]
+
+        for r in range(len(mat)):
+            for c in range(len(mat[0])):
+                answer[r][c] = solve(mat, r, c, k)
+
+        return (answer)
+        
+        
