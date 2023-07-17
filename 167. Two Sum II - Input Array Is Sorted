@@ -1,0 +1,29 @@
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        
+        '''
+        #index2 > index1
+        # return [index1, index2]
+        
+        
+        ans = []
+        n = len(numbers)
+        for i in range(n):
+            for j in range(i+1, n):
+                if numbers[i] + numbers[j] == target:
+                    ans.append(i + 1)
+                    ans.append(j + 1)
+        return ans
+        '''
+        l = 0
+        r = len(numbers) - 1
+        while l < r:
+            sum = numbers[l] + numbers[r]
+
+            if sum == target:
+                return [l+1, r+1]
+            elif sum < target:
+                l += 1
+            elif sum > target:
+                r -= 1
+            
