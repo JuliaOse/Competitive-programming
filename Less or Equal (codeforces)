@@ -1,0 +1,16 @@
+n, k = map(int, input().split())
+sequence = list(map(int, input().split()))
+sequence.sort() 
+arr = []
+for i in range(k+1):
+    arr.append(sequence[i])
+if arr[-1] == arr[-2]:
+    print(-1)
+count = arr[-2]
+while count != arr[-1]:
+    for i in range(k):
+        if count >= arr[i] and count < arr[-1]:
+            print(count)
+            break
+    break
+    count += 1
