@@ -1,0 +1,23 @@
+'''
+time: O(log n)
+space: O(1)
+binary search searches for a target in a sorted array
+and returns the index/position
+binary search follows a divide-and-conquer strategy. 
+The algorithm repeatedly divides the search space in half, 
+reducing the problem into smaller subproblems, until the target value is found or the search space becomes empty.
+At each step, binary search identifies the middle element of the current search space and compares it with the target value. 
+Based on the comparison, the search space is further divided into the left or right half, discarding the other half as it cannot contain the target value.
+'''
+def BinarySearch(arr, target):
+    low = 0
+    high = len(arr) - 1
+    while low <= high:
+        mid = (low + high)//2
+        if arr[mid] == target:
+            return mid
+        elif arr[mid] < target:
+              low = mid + 1
+        else:
+              high = mid - 1
+    return -1
