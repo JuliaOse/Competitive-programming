@@ -1,0 +1,29 @@
+from collections import Counter
+def transform(a, b, n):
+    #count_a = Counter(a)
+    #count_b = Counter(b)
+        
+    if a == b:
+        print("YES")
+    else:
+        a.sort()
+        b.sort()
+        for i in range(n):
+            if a[i] == b[i]:
+                continue
+            else:
+                a[i] += 1
+        if a == b:
+            print("YES")
+        else:
+            print("NO")
+
+t = int(input())
+
+for _ in range(t):
+    n = int(input())
+    a = list(map(int, input().split()))
+    b = list(map(int, input().split()))
+  
+    
+    transform(a, b, n)
