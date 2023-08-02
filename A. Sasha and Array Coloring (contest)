@@ -1,0 +1,29 @@
+'''
+time: O(n)
+space : O(1)
+'''
+t = int(input())
+
+for _ in range(t):
+    n = int(input())
+    a = list(map(int, input().split()))
+    a.sort()
+    #print(a)
+    #r = 1
+    #l = n - 1
+    max_cost = 0
+    i = 0
+    while i < n // 2:
+        max_cost += (a[n - i - 1] - a[i])
+        i += 1
+
+    print(max_cost)
+    '''cost = 0
+    while r < l:
+        cost = a[l] + a[l-1] - a[r-1] - a[r]
+        print(cost)
+        l -= 1
+        r += 1
+        max_cost = max(max_cost, cost)
+    print(max_cost)
+    '''
