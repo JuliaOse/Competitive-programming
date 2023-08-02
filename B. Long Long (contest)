@@ -1,0 +1,23 @@
+t = int(input())
+#time: O(t*n)
+#space: O(n)
+for _ in range(t):
+    n = int(input())
+    a = list(map(int, input().split()))
+    
+    max_sum = sum(abs(num) for num in a)
+    flag = False
+    count_neg_sequence = 0
+    
+    for num in a:
+        if num < 0:
+            if not flag:
+                count_neg_sequence += 1
+                flag = True
+        elif num > 0:
+            flag = False
+            
+            
+        
+    
+    print(max_sum, count_neg_sequence)
