@@ -1,0 +1,35 @@
+class Solution:
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        time: O(n)
+        space: O(1)
+        Do not return anything, modify nums in-place instead.
+        """
+        '''
+        n = len(nums)
+        l = 0
+        r = n -1
+        stop = 0
+        while stop < k:
+            temp = nums[-1]
+            for i in range(len(nums)-2, -1, -1):
+                nums[i +1] = nums[i]
+            nums[0] = temp
+            stop += 1
+        '''
+        l = 0
+        n = len(nums)
+        r = len(nums)-1
+        k %= n
+
+        def reverse(start, end):
+            while start < end:
+                nums[start], nums[end] = nums[end], nums[start]
+                start += 1
+                end -= 1
+            
+        reverse(l, r)
+        reverse(l, k-1)
+        reverse(k, r)
+        
+            
