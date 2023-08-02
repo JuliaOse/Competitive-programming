@@ -1,0 +1,27 @@
+class Solution:
+    def judgeSquareSum(self, c: int) -> bool:
+        #squares = [num * num for num in range(int(c ** 0.5) + 1)]
+        l = 0
+        r = int(c ** 0.5) + 1
+        #[1, 4, 9, 16]
+        '''print(squares)
+        checked = []
+        for num in squares:
+            diff = c - num
+            if diff in checked:
+                return True
+            checked.append(num)
+        print(checked)
+        return False
+        '''
+        while l <= r:
+            sum_ = (l*l) + (r*r)
+            if sum_ == c:
+                return True
+            elif sum_ > c:
+                r -= 1
+            else:
+                l += 1
+        return False
+        #space = O(1)
+        #time = O(n)
