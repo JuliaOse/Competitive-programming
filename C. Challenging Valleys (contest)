@@ -1,0 +1,30 @@
+def is_valid_sequence(a):
+    n = len(a)
+    dec = 0
+    inc = 0
+    f = False
+
+    for i in range(1, n):
+        if a[i] > a[i - 1]:
+            inc += 1
+        elif a[i] < a[i - 1]:
+            dec += 1
+            if inc > 0:
+                f = True
+                break
+
+    return not f
+
+
+t = int(input())  
+
+for _ in range(t):
+    n = int(input())  
+    a = list(map(int, input().split()))  
+
+    if is_valid_sequence(a):
+        print("YES")
+    else:
+        print("NO")
+#time: O(t*n)
+#space: O(n)
