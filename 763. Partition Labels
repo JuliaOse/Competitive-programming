@@ -1,0 +1,22 @@
+class Solution:
+    def partitionLabels(self, s: str) -> List[int]:
+        count = defaultdict(int)
+        s_list =[char for char in s]
+
+        #defaultdict( {'a': 8, 'b': 5, 'c': 7, 'd': 14, 'e': 15, 'f': 11, 'g': 13, 'h': 19, 'i': 22, 'j': 23, 'k': 20, 'l': 21})
+
+        for i, s in enumerate(s):
+            count[s] = i
+        
+        l, r = 0, 0
+        
+        ans = []
+        
+        
+        for i, char in enumerate(s_list):
+            r = max(r, count[char])
+
+            if i == r:
+                ans.append(r-l+1)
+                l = r + 1
+        return ans
