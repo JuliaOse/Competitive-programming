@@ -1,0 +1,13 @@
+class Solution:
+    def subarraysDivByK(self, nums: List[int], k: int) -> int:
+        sum_ = 0
+        count = 0
+        prefix = defaultdict(int)
+        prefix[0] = 1
+        for i in range(len(nums)):
+            sum_ += nums[i]
+            comp = sum_ % k
+            count += prefix[comp]
+            prefix[comp] += 1
+            
+        return count
