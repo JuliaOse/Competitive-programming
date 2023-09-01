@@ -1,0 +1,28 @@
+class Solution:
+    def minimumRemoval(self, beans: List[int]) -> int:
+        '''
+        if len(beans) == 1:
+            return 0
+   
+        beans.sort()
+        total = sum(beans)
+        min_beans = float('inf')
+        for i in range(len(beans)):
+            sum_ = i
+            r = i + 1
+            while r < len(beans):
+                sum_ += beans[r] - beans[i]
+                r += 1
+
+            num = total - sum_
+            min_beans = min(min_beans, num)
+        return min_beans
+        '''
+        beans.sort()
+        total = sum(beans)
+        min_beans = float('inf')
+        bean = 0
+        for i, num in enumerate(beans):
+            bean = total - (beans[i]* (len(beans) - i))
+            min_beans = min(min_beans, bean)
+        return min_beans
