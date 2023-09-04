@@ -1,0 +1,10 @@
+class Solution:
+    def isPalindrome(self, head: Optional[ListNode]) -> bool:
+        first = []
+        while head:
+            first.append(head.val)
+            head = head.next
+   
+        second = first[::-1]
+      
+        return first == second
