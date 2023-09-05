@@ -1,0 +1,19 @@
+class Solution:
+    def partition(self, head: Optional[ListNode], x: int) -> Optional[ListNode]:
+        sdummy, mdummy = ListNode(), ListNode()
+        less = sdummy
+        more = mdummy
+        #dummy.next = head
+        while head:
+            if head.val < x:
+                less.next = head
+                less = less.next
+            else:
+                more.next = head
+                more = more.next
+
+            head = head.next
+        
+        less.next = mdummy.next
+        more.next = None
+        return sdummy.next
