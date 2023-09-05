@@ -1,0 +1,13 @@
+class Solution:
+    def gridGame(self, grid: List[List[int]]) -> int:
+
+        suffix = sum(grid[0])
+        prefix = 0
+        ans = float("inf")
+        for i in range(len(grid[0])):
+            suffix -= grid[0][i]
+            ans = min(ans, max(suffix,prefix))
+            prefix += grid[1][i]
+        return ans
+        
+        
