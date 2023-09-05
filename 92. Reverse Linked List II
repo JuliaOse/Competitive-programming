@@ -1,0 +1,29 @@
+class Solution:
+    def reverseBetween(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
+        #prev = None
+        dummy = ListNode()
+        start = dummy
+        mid = dummy
+        end = dummy
+        dummy.next = head
+        
+        for i in range(right+1):
+            if i < left:
+                start = mid
+                mid = mid.next
+            end = end.next
+        
+        prev = None
+        curr = mid
+
+        while curr!=end:
+            r = curr.next
+            curr.next = prev
+            prev = curr
+            curr = r
+
+        start.next = prev
+        mid.next = end
+
+        return dummy.next 
+        
