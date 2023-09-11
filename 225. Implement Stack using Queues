@@ -1,0 +1,38 @@
+class ListNode:
+    def __init__(self, val=0):
+        self.val = val
+        self.next = None
+
+class MyStack:
+
+    def __init__(self):
+        self.stack = ListNode()
+
+    def push(self, x: int) -> None:
+        new_node = ListNode(x)
+        new_node.next = self.stack
+        self.stack = new_node
+
+    def pop(self) -> int:
+        popped = self.stack 
+        self.stack = self.stack.next
+        popped.next = None
+        return popped.val
+
+
+    def top(self) -> int:
+        return self.stack.val
+
+    def empty(self) -> bool:
+        if self.stack.next:
+            return False
+        else:
+            return True
+
+
+# Your MyStack object will be instantiated and called as such:
+# obj = MyStack()
+# obj.push(x)
+# param_2 = obj.pop()
+# param_3 = obj.top()
+# param_4 = obj.empty()
