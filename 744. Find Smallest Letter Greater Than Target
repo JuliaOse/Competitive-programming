@@ -1,0 +1,31 @@
+class Solution:
+    def nextGreatestLetter(self, letters: List[str], target: str) -> str:
+        low = 0
+        hi = len(letters)-1
+
+        smallest = letters[0]
+        while low <= hi:
+            mid = low + (hi-low)//2
+
+            if ord(letters[mid]) > ord(target):
+                smallest = letters[mid]
+                hi = mid - 1
+            elif ord(letters[mid]) <= ord(target):
+                low = mid + 1
+
+
+
+        return smallest
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+        #print(chr((ord(low)+ord(hi))//2))
