@@ -1,0 +1,22 @@
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        def search(target):
+            l = 0
+            r = len(nums)
+            while l  < r:
+                mid = (l+r)//2
+                if nums[mid] < target:
+                    l = mid+1
+                else:
+                    r = mid 
+            return l
+
+        
+        position1 = search(target)
+        position2 = search(target+1) -1
+        if position1 <= position2:
+            return [position1, position2]
+                
+        return [-1, -1]
+        # print(bisect_left(nums, target))
+        # print(bisect_right(nums, target)-1)
