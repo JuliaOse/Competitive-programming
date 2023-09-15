@@ -1,0 +1,16 @@
+class Solution:
+    def timeRequiredToBuy(self, tickets: List[int], k: int) -> int:
+        #ticket = tickets
+        target = tickets[k]
+        ans = 0
+        for i in range(len(tickets)):
+            if tickets[i] < target:
+                ans += tickets[i]
+            elif tickets[i] >= target and k < i:
+                ans += (target-1)
+            else:
+                ans += target
+
+        return ans
+            
+         
