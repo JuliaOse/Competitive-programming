@@ -1,0 +1,18 @@
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        l = 0
+        r = len(nums)-1
+        while l < r:
+            mid = l+(r-l)//2
+            k = 0
+            for num in nums:
+                if num <= mid:
+                    k+= 1
+            
+            if k <= mid:
+                l = mid + 1
+            else:
+                r = mid 
+            
+        return l
+        
