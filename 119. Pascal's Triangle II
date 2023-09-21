@@ -1,0 +1,18 @@
+class Solution:
+    def getRow(self, r: int) -> List[int]:
+        memo = {}
+        def row(r):
+            ans = [1] * (r + 1)
+            if r < 2:
+                return ans
+
+            if r in memo:
+                return memo[r]
+
+            for i in range(1, len(ans)-1):
+                ans[i] = row(r - 1)[i - 1] + row(r - 1)[i]
+                
+            memo[r] = ans
+            return ans
+        return row(r)
+            
